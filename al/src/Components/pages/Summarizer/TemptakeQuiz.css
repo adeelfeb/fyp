@@ -1,0 +1,108 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Ensure padding and borders are included in width/height */
+}
+
+.mainContainerForQuiz {
+    height: 100%;
+    background: rgba(199, 199, 199, 0);
+   
+}
+
+.containerForQuiz {
+    background: white;
+    padding: 40px 50px;
+    display: flex;
+    flex-direction: column;
+    color: black;
+    margin: auto;
+    /* margin-top: 150px; */
+    width: 640px;
+    gap: 20px;
+    /* border-radius: 10px; */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Adds shadow for better visibility */
+}
+
+.containerForQuiz hr {
+    height: 2px;
+    background-color: #707070;
+    border: none;
+}
+
+.containerForQuiz h2 {
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.containerForQuiz ul {
+    list-style-type: none; /* Remove default list styling */
+    padding: 0; /* Remove padding */
+}
+
+.containerForQuiz ul li {
+    display: flex;
+    align-items: center;
+    border: 1px solid #686866;
+    border-radius: 8px;
+    padding: 10px; /* Adjust padding to better fit the content */
+    margin-bottom: 20px;
+    font-size: 20px;
+    cursor: pointer;
+    box-sizing: border-box; /* Ensure padding and border are included in width/height */
+}
+
+.containerForQuiz button {
+    margin: auto;
+    width: 250px;
+    height: 65px;
+    background: #A6B1E1;
+    font-size: 24px;
+    font-weight: 500;
+    border-radius: 8px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.containerForQuiz button:hover {
+    background-color: #424874;
+}
+
+.containerForQuiz .indexOfQuestion {
+    margin: auto;
+    font-size: 18px;
+}
+
+/* Input styling for short answers */
+.containerForQuiz textarea {
+    width: 100%; /* Full width of the container */
+    max-width: 600px; /* Maximum width */
+    min-width: 300px; /* Minimum width */
+    height: 150px; /* Fixed height */
+    padding: 10px; /* Padding inside textarea */
+    font-size: 1.2em; /* Larger font size */
+    border: 2px solid #ccc; /* Border style */
+    border-radius: 5px; /* Rounded corners */
+    resize: both; /* Allows resizing */
+    box-sizing: border-box; /* Includes padding and border in width/height */
+    margin: 0; /* Remove margin */
+}
+
+.containerForQuiz textarea:focus {
+    border-color: #bbbbbb; /* Change border color on focus */
+    outline: none; /* Remove default outline */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Optional shadow for focus */
+}
+
+/* Optional: styling for correct/incorrect answers */
+.containerForQuiz .correct {
+    background: #dffff2;
+    border-color: #00d397;
+}
+
+.containerForQuiz .wrong {
+    background: #FFEBEB;
+    border-color: #FF4A4A;
+}

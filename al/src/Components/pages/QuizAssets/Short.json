@@ -1,0 +1,25 @@
+{
+    "short_questions": [
+      {
+        "question": "What is the purpose of a Large Language Model (LLM)?",
+        "answer": "The purpose of an LLM is to understand and generate human-like text by processing large amounts of natural language data."
+      },
+      {
+        "question": "Which architecture is primarily used in models like GPT?",
+        "answer": "Models like GPT primarily use the Transformer architecture."
+      },
+      {
+        "question": "Who developed the GPT model?",
+        "answer": "The GPT model was developed by OpenAI."
+      },
+      {
+        "question": "What does 'fine-tuning' refer to in the context of LLMs?",
+        "answer": "Fine-tuning refers to the process of adapting a pre-trained model to perform a specific task by training it on a smaller, task-specific dataset."
+      },
+      {
+        "question": "What is a common challenge when using LLMs like ChatGPT?",
+        "answer": "A common challenge when using LLMs like ChatGPT is generating responses that may be inaccurate, biased, or misleading."
+      }
+    ]
+  }
+  

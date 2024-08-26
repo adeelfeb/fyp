@@ -1,0 +1,45 @@
+.youtube-video-info {
+    padding: 20px;
+    max-width: 600px;
+    margin: auto;
+    text-align: center;
+}
+
+input {
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.error-message {
+    color: red;
+}
+
+.video-details {
+    margin-top: 20px;
+}
+
+.video-details img {
+    max-width: 100%;
+    height: auto;
+}
+
+.video-details h3 {
+    margin-top: 10px;
+    font-size: 18px;
+}
