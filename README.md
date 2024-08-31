@@ -1,12 +1,56 @@
 # fyp
-Uncaught TypeError: Cannot destructure property 'basename' of 'React2.useContext(...)' as it is null.
-    at LinkWithRef (react-router-dom.js?v=e5b3cd9c:5268:5)
-    at renderWithHooks (chunk-6VWAHX6D.js?v=e5b3cd9c:11548:26)
-    at updateForwardRef (chunk-6VWAHX6D.js?v=e5b3cd9c:14325:28)
-    at beginWork (chunk-6VWAHX6D.js?v=e5b3cd9c:15946:22)
-    at HTMLUnknownElement.callCallback2 (chunk-6VWAHX6D.js?v=e5b3cd9c:3674:22)
-    at Object.invokeGuardedCallbackDev (chunk-6VWAHX6D.js?v=e5b3cd9c:3699:24)
-    at invokeGuardedCallback (chunk-6VWAHX6D.js?v=e5b3cd9c:3733:39)
-    at beginWork$1 (chunk-6VWAHX6D.js?v=e5b3cd9c:19765:15)
-    at performUnitOfWork (chunk-6VWAHX6D.js?v=e5b3cd9c:19198:20)
-    at workLoopSync (chunk-6VWAHX6D.js?v=e5b3cd9c:19137:13)
+
+
+
+`` just creating a seperate component for the core of the system ``
+
+# To Install
+````
+npm install react-modal
+````
+import these to use the popup requirements
+``` 
+import React, { useState } from 'react';
+import Modal from 'react-modal';
+
+// Set the app element for accessibility (important for screen readers)
+Modal.setAppElement('#root');
+ ```
+
+
+# Install tailwind
+
+````  
+npm install -D tailwindcss postcss autoprefixer
+
+````
+````
+npx tailwindcss init -p
+
+````
+
+Configure tailwind.config.js
+Edit tailwind.config.js to include paths to your React components. This setup will enable Tailwind to remove unused styles in production:
+
+
+```
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    "./src/**/*.{js,jsx,ts,tsx}",
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+```
+
+Add Tailwind Directives to Your CSS
+In the src folder, find or create a file named index.css and include the following Tailwind directives:
+```
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+```
