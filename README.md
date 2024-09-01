@@ -96,7 +96,8 @@ Here's how you can install a modal library and React Router for handling popups 
 ```bash
 # Install React Router
 npm install react-router-dom
-
+````
+````
 # Install a modal library (e.g., React Modal)
 npm install react-modal
 ```
