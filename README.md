@@ -84,10 +84,10 @@ npm install react-router-dom
 ````
 
 # Install a modal library (e.g., React Modal)
+
 ````
 npm install react-modal
-```
-
+````
 
 Here's a quick guide on how to use `React Router` for routing and `React Modal` for creating modal popups in your React project:
 
