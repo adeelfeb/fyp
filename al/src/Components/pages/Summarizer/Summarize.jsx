@@ -37,53 +37,176 @@ export default function Summarize() {
 
     return (
         <div className="containerForWork">
-            <GettingInput 
-                onApiResponse={handleApiResponse} 
-                onStartLoading={handleStartLoading} 
-            />
+            <div className="left-menu">
+                <button className="menu-button" disabled={false}>
+                    Input URL
+                </button>
+                <button className="menu-button" disabled={!apiResponse || !apiResponse.videoUrl}>
+                    Transcript
+                </button>
+                <button className="menu-button" disabled={!apiResponse || !apiResponse.videoUrl}>
+                    Summary
+                </button>
+                <button className="menu-button" disabled={!apiResponse || !apiResponse.videoUrl}>
+                    Take Quiz
+                </button>
+                <button className="menu-button" disabled={!apiResponse || !apiResponse.videoUrl}>
+                    History
+                </button>
+            </div>
 
-            {apiResponse && apiResponse.videoUrl && (
-                <VideoDetails videoUrl={apiResponse.videoUrl} />
-            )}
+            <div className="main-content">
+                {/* Input URL and Video Details */}
+                <GettingInput 
+                    onApiResponse={handleApiResponse} 
+                    onStartLoading={handleStartLoading} 
+                />
 
-            <div className="take-quiz-container">
-                <div className="QuizPopUpDiv">
-                    {loading ? (
-                        <div className="spinner"></div>
-                    ) : (
-                        <button 
-                            onClick={() => {
-                                console.log("Starting Quiz");
-                                setVisible(true);
-                            }} 
-                            disabled={!apiResponse || !apiResponse.videoUrl}
-                        >
-                            Start Quiz
-                        </button>
-                    )}
+                {apiResponse && apiResponse.videoUrl && (
+                    <VideoDetails videoUrl={apiResponse.videoUrl} />
+                )}
 
-                    <Modal
-                        isOpen={visible && apiResponse}
-                        onRequestClose={() => setVisible(false)}
-                        className="fixed inset-0 flex justify-center items-center p-4"
-                        overlayClassName="fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm"
-                        shouldCloseOnOverlayClick={true}
-                    >
-                        <div className="bg-transparent p-0 rounded-lg relative">
+                {/* Take Quiz Button */}
+                <div className="take-quiz-container">
+                    <div className="QuizPopUpDiv">
+                        {loading ? (
+                            <div className="spinner"></div>
+                        ) : (
                             <button 
-                                onClick={checkQuizQuit} 
-                                className="absolute top-2 right-2 text-4xl font-bold text-gray-500 hover:text-gray-700 p-2"
+                                onClick={() => {
+                                    console.log("Starting Quiz");
+                                    setVisible(true);
+                                }} 
+                                disabled={!apiResponse || !apiResponse.videoUrl}
                             >
-                                &times;
+                                Start Quiz
                             </button>
-                            {apiResponse && <TempTakeQuiz apiResponse={apiResponse} />}
-                        </div>
-                    </Modal>
+                        )}
+
+                        <Modal
+                            isOpen={visible && apiResponse}
+                            onRequestClose={() => setVisible(false)}
+                            className="fixed inset-0 flex justify-center items-center p-4"
+                            overlayClassName="fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm"
+                            shouldCloseOnOverlayClick={true}
+                        >
+                            <div className="bg-transparent p-0 rounded-lg relative">
+                                <button 
+                                    onClick={checkQuizQuit} 
+                                    className="absolute top-2 right-2 text-4xl font-bold text-gray-500 hover:text-gray-700 p-2"
+                                >
+                                    &times;
+                                </button>
+                                {apiResponse && <TempTakeQuiz apiResponse={apiResponse} />}
+                            </div>
+                        </Modal>
+                    </div>
                 </div>
             </div>
         </div>
     );
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import React, { useState } from "react";
+// import "./Summarize.css";
+// import TempTakeQuiz from "./TempTakeQuiz";
+// import GettingInput from "./GettingInput";
+// import Modal from "react-modal";
+// import VideoDetails from "./VideoDetails";
+
+// Modal.setAppElement('#root');
+
+// export default function Summarize() {
+//     const [visible, setVisible] = useState(false);
+//     const [apiResponse, setApiResponse] = useState(null);
+//     const [loading, setLoading] = useState(false);
+
+//     // Handle API response
+//     const handleApiResponse = (response) => {
+//         if (response) {
+//             setApiResponse(response);
+//         } else {
+//             // No response or invalid URL, clear the API response
+//             setApiResponse(null); // Clear the API response
+//         }
+//         setLoading(false); // Stop loading state
+//     };
+
+//     const handleStartLoading = () => {
+//         console.log("Loading started...");
+//         setLoading(true);
+//     };
+
+//     const checkQuizQuit = () => {
+//         const userConfirmed = window.confirm("You are about to leave the Quiz. Do you want to proceed?");
+//         if (userConfirmed) {
+//             setVisible(false);
+//         }
+//     };
+
+//     return (
+//         <div className="containerForWork">
+//             <GettingInput 
+//                 onApiResponse={handleApiResponse} 
+//                 onStartLoading={handleStartLoading} 
+//             />
+
+//             {apiResponse && apiResponse.videoUrl && (
+//                 <VideoDetails videoUrl={apiResponse.videoUrl} />
+//             )}
+
+//             <div className="take-quiz-container">
+//                 <div className="QuizPopUpDiv">
+//                     {loading ? (
+//                         <div className="spinner"></div>
+//                     ) : (
+//                         <button 
+//                             onClick={() => {
+//                                 console.log("Starting Quiz");
+//                                 setVisible(true);
+//                             }} 
+//                             disabled={!apiResponse || !apiResponse.videoUrl}
+//                         >
+//                             Start Quiz
+//                         </button>
+//                     )}
+
+//                     <Modal
+//                         isOpen={visible && apiResponse}
+//                         onRequestClose={() => setVisible(false)}
+//                         className="fixed inset-0 flex justify-center items-center p-4"
+//                         overlayClassName="fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm"
+//                         shouldCloseOnOverlayClick={true}
+//                     >
+//                         <div className="bg-transparent p-0 rounded-lg relative">
+//                             <button 
+//                                 onClick={checkQuizQuit} 
+//                                 className="absolute top-2 right-2 text-4xl font-bold text-gray-500 hover:text-gray-700 p-2"
+//                             >
+//                                 &times;
+//                             </button>
+//                             {apiResponse && <TempTakeQuiz apiResponse={apiResponse} />}
+//                         </div>
+//                     </Modal>
+//                 </div>
+//             </div>
+//         </div>
+//     );
+// }
 
 
 
