@@ -1,3 +1,44 @@
+/* src/styles.css */
+.app {
+  display: flex; /* Use flexbox for layout */
+  height: 100vh; /* Full height of the viewport */
+}
+
+.sidebar {
+  width: 200px; /* Width of the sidebar */
+  background-color: #f0f0f0; /* Background color */
+  padding: 20px; /* Padding around the buttons */
+  display: flex; /* Flexbox for layout */
+  flex-direction: column; /* Stack buttons vertically */
+  gap: 10px; /* Space between buttons */
+}
+
+.content {
+  padding: 20px; /* Padding for content area */
+  flex: 1; /* Take the remaining space */
+  overflow-y: auto; /* Enable scrolling for long content */
+}
+
+.sidebar button {
+  padding: 10px; /* Padding for buttons */
+  cursor: pointer; /* Change cursor on hover */
+  border: none; /* Remove default button border */
+  background-color: #fff; /* Button background */
+  transition: background-color 0.3s; /* Smooth transition */
+}
+
+.sidebar button:hover {
+  background-color: #e0e0e0; /* Change background on hover */
+}
+
+.analysis-results {
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
 /* #root {
   max-width: 1280px;
   margin: 0 auto;
