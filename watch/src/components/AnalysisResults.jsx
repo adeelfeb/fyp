@@ -1,16 +1,63 @@
 // src/components/AnalysisResults.jsx
 import React from 'react';
+import History from './History';
+import InputURL from './InputURL'; // If needed
+import QnADisplay from './QnADisplay';
+import Quiz from './Quiz';
+import QuizResult from './QuizResult'; // Importing QuizResult component
+import SummaryDisplay from './SummaryDisplay';
+import TranscriptDisplay from './TranscriptDisplay';
 
 const AnalysisResults = ({ type, data }) => {
+  const renderComponent = () => {
+    switch (type) {
+      case 'history':
+        return <History data={data} />;
+      case 'inputUrl':
+        return <InputURL onSubmit={data.onSubmit} />; // Assuming data contains onSubmit
+      case 'qnas':
+        return <QnADisplay data={data} />;
+      case 'quiz':
+        return <Quiz data={data} />;
+      case 'score':
+        return <QuizResult data={data} />; // Rendering QuizResult for quiz results
+      case 'summary':
+        return <SummaryDisplay data={data} />;
+      case 'transcript':
+        return <TranscriptDisplay data={data} />;
+      default:
+        return <p>No data available for {type}.</p>;
+    }
+  };
+
   return (
     <div className="bg-white p-4 rounded shadow">
       <h2 className="text-xl font-bold">{type.charAt(0).toUpperCase() + type.slice(1)}</h2>
-      <p>{data || `No data available for ${type}.`}</p>
+      {renderComponent()}
     </div>
   );
 };
 
 export default AnalysisResults;
+
+
+
+
+
+
+// // src/components/AnalysisResults.jsx
+// import React from 'react';
+
+// const AnalysisResults = ({ type, data }) => {
+//   return (
+//     <div className="bg-white p-4 rounded shadow">
+//       <h2 className="text-xl font-bold">{type.charAt(0).toUpperCase() + type.slice(1)}</h2>
+//       <p>{data || `No data available for ${type}.`}</p>
+//     </div>
+//   );
+// };
+
+// export default AnalysisResults;
 
 
 // // src/components/AnalysisResults.js
