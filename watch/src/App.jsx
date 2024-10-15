@@ -1,12 +1,13 @@
 import React, { useState } from "react";
+import { APIProvider } from './contexts/APIContext'; // Import your APIProvider
 import Sidebar from './components/Sidebar';
 import InputURL from './components/InputURL';
 import AnalysisResults from './components/AnalysisResults';
 import Header from './components/Header';
+import Summarize from './components/Summarize'; // Import Summarize component
 
 const App = () => {
     const [currentSection, setCurrentSection] = useState('inputUrl');
-    const [isLoginOpen, setIsLoginOpen] = useState(false); // State for controlling login popup
     const [url, setUrl] = useState('');
     const [transcriptData, setTranscriptData] = useState(null);
     const [summaryData, setSummaryData] = useState(null);
@@ -42,22 +43,10 @@ const App = () => {
     };
 
     return (
-        <div>
+        <APIProvider>
             <Header />
-            <div className="app flex">
-                <Sidebar onSelect={handleSelect} />
-                <div className="content flex-grow p-4">
-                    {currentSection === 'inputUrl' && <InputURL onSubmit={handleUrlSubmit} />}
-                    {currentSection === 'transcript' && <AnalysisResults type="transcript" data={transcriptData} />}
-                    {currentSection === 'summary' && <AnalysisResults type="summary" data={summaryData} />}
-                    {currentSection === 'quiz' && <AnalysisResults type="quiz" />}
-                    {currentSection === 'qnas' && <AnalysisResults type="qnas" data={qnasData} />}
-                    {currentSection === 'score' && <AnalysisResults type="score" />}
-                    {currentSection === 'history' && <AnalysisResults type="history" />}
-                </div>
-            </div>
-    
-        </div>
+            <Summarize onSelect={handleSelect} />
+        </APIProvider>
     );
 };
 
