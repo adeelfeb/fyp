@@ -1,4 +1,4 @@
-/* src/styles.css */
+src/styles.css */
 .app {
   display: flex; /* Use flexbox for layout */
   height: 100vh; /* Full height of the viewport */
@@ -80,4 +80,4 @@
 
 .read-the-docs {
   color: #888;
-} */
+}
